@@ -1,0 +1,70 @@
+
+body{
+    background-color: #f0f2f7;
+}
+
+#header{
+    height: 670px;
+    background-image: url('../img/banner site-02.png');
+}
+
+
+
+
+#logo{
+    width: 500px;
+    height: 150px;
+    background: url('../img/logo-large.png') no-repeat;
+    
+}
+
+#header h1{
+    margin-top:150px;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    font-weight: bold;
+    font-size: 50px;
+    text-transform: uppercase;
+}
+
+#header h2{
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    font-size: 32px;
+}
+
+.btn-action {
+    cursor: pointer;
+    margin-top: 50px;
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+    border-width: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 3px;
+    border: 3px;
+    font-size: 32px;
+    border-style: solid;
+}
+
+.btn-action:hover{
+    color: #f6f6f6;
+    text-decoration: underline;
+    
+}
+
+#event{
+    margin-top: 50px;
+}
+
+
+@media (max-width: 768px) {
+    #header{
+    height: 720px;
+    background-image: url('../img/banner site-02.png');
+    }
+    #header h1{
+        margin-top: 100px;
+    }
+}
