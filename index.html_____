@@ -6,7 +6,7 @@
          <meta name="description" content="Venha conhecer as novas tecnologias e gerenciamento de pessoas e tarefas do mercado.">
          <meta name="author" content="">
          
-         <title>Além da Gestão</title>
+         <title>Gama Camp</title>
          
          
         <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css" type="text/css" />
@@ -15,36 +15,48 @@
         
     </head>
     <body>
+
+        <section id="navbar" style="
+    background-color: black;
+    width: 100%;
+    height: 70px;
+">
+        <
+        <div id="logo"></div>
+
+        </section>
         <section id="header">
             
             <div class="row">
                 <div class="col col-md-4">
-                    <a href="#">
-                        <div id="logo"></div>
-                    </a>
                 </div>
-                <div class="col col-md-4"></div>
-                <div class="col col-md-4"></div>
-            </div>
-            <div class="row">
-                <div class="col col-lg-12" align="center">
-                    <h1>
-                        Além da Gestão.
-                    </h1>
-                    <div class="col col-md-5">
-                        <h2>
-                            Conversa sobre como as novas tecnologias afetam o gerenciamento de pessoas e tarefas.
-                        </h2>
-                    </div>
-                    <div class="col col-md-5">
-                        <button class="btn-action" onclick="location.href='#event';">
+                <div class="col col-md-4">
+                    <button class="btn-action" onclick="location.href='#event';">
                             Inscreva-se
                             <i class="fa fa-caret-down" aria-hidden="true"></i>
                         </button>
+                </div>
+                <div class="col col-md-4"></div>
+            </div>
+            <div class="row">
+
+                <div class="col col-md-4" align="center">
+                    <h1>
+                      Gama Camp
+                    </h1>
+                    <div class="col col-md-5">
+                        <h2>
+                            
+                        </h2>
+                    </div>
+                    <div class="col col-md-5">
+                        
                         
                     </div>
                     
                 </div>
+            <div class="col col-md-4"></div>
+            <div class="col col-md-4"></div>
             </div>
             <div class="row">
                 <div class="col col-md-4"></div>

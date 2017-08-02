@@ -5,7 +5,7 @@ body{
 
 #header{
     height: 670px;
-    background-image: url('../img/banner.png');
+    background-image: url('../img/bg.jpg');
 }
 
 
@@ -14,7 +14,7 @@ body{
 #logo{
     width: 500px;
     height: 150px;
-    background: url('../img/logo-large.png') no-repeat;
+    background: url('../img/logo.png') no-repeat;
     
 }
 
