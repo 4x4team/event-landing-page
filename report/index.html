@@ -26,6 +26,10 @@
     <link href="css/creative.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/chartist.min.css">
+    
+    <style>
+        .ct-label {font-size:15px;}
+    </style>
 </head>
 
 <body id="page-top">
@@ -100,25 +104,30 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 text-center">
+                <div class="col-md-6 text-center">
                     <div class="service-box">
                         <div class="ct-chart ct-perfect-fourth" id="chart1"></div>
                         <p class="text-muted">Faturamento por Dia</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 text-center">
+                <div class="col-md-6 text-center">
                     <div class="service-box">
                         <div class="ct-chart ct-perfect-fourth" id="chart4"></div>
                         <p class="text-muted">Composição do Faturamento</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
+             
+            </div>
+            
+            <div class="row">
+               
+                <div class="col-md-6 text-center">
+                    <div class="service-box" style="width:500px">
                         <div class="ct-chart ct-perfect-fourth" id="chart3"></div>
                         <p class="text-muted">Composição do Custo</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 text-center">
+                <div class="col-md-6 text-center">
                     <div class="service-box">
                         <div class="ct-chart ct-perfect-fourth" id="chart2"></div>
                         <p class="text-muted">Faturamento x Custo</p>
@@ -354,28 +363,31 @@
    /* a venda de ingressos por dia */
 
         new Chartist.Bar('#chart1', {
-          labels: ['Sáb', 'Dom', 'Seg', 'Ter', 'Qua'],
-          series: [[0, 0, 0, 133, 721.4]]
-        });
+            labels: ['Sáb', 'Dom', 'Seg', 'Ter', 'Qua'],
+            series: [[0, 0, 0, 133, 721.4]]},
+            {width:500}
+        );
         
  
-         new Chartist.Bar('#chart2', {
+        new Chartist.Bar('#chart2', {
           labels: ['Faturamento', 'Custo'],
-          series: [[855, 229.90]]
-        });
+          series: [[855, 229.90]]},
+          {width:500}
+        );
         
         
         /*Composição do Custo*/
 
         var data3 = {
-          labels: ['FaceAds', 'Brinde para Sorteio', 'Local' ],
+          labels: ['FaceAds', 'Brinde', 'Local' ],
           series: [51, 39.90, 139.00]
         };
         
         var options = {
           labelInterpolationFnc: function(value) {
             return value[0]
-          }
+          },
+          width:500
         };
         
         var responsiveOptions = [
@@ -402,10 +414,11 @@
           series: [500, 355]
         };
 
-        var options = {
-            labelInterpolationFnc: function(value) {
-                return value[0]
-            }
+         var options = {
+          labelInterpolationFnc: function(value) {
+            return value[0]
+          },
+          width:500
         };
 
         var responsiveOptions = [
