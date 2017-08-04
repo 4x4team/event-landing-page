@@ -26,6 +26,12 @@
     <link href="css/creative.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/chartist.min.css">
+
+    <style>
+        .ct-label {
+            font-size: 15px;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -100,25 +106,30 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 text-center">
+                <div class="col-md-6 text-center">
                     <div class="service-box">
                         <div class="ct-chart ct-perfect-fourth" id="chart1"></div>
                         <p class="text-muted">Faturamento por Dia</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 text-center">
+                <div class="col-md-6 text-center">
                     <div class="service-box">
                         <div class="ct-chart ct-perfect-fourth" id="chart4"></div>
                         <p class="text-muted">Composição do Faturamento</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 text-center">
+                    <div class="service-box" style="width:500px">
                         <div class="ct-chart ct-perfect-fourth" id="chart3"></div>
                         <p class="text-muted">Composição do Custo</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 text-center">
+                <div class="col-md-6 text-center">
                     <div class="service-box">
                         <div class="ct-chart ct-perfect-fourth" id="chart2"></div>
                         <p class="text-muted">Faturamento x Custo</p>
@@ -368,6 +379,8 @@
             series: [
                 [0, 0, 0, 133, 721.4]
             ]
+        }, {
+            width: 500
         });
 
 
@@ -376,68 +389,82 @@
             series: [
                 [855, 229.90]
             ]
+        }, {
+            width: 500
         });
 
 
         /*Composição do Custo*/
 
         var data3 = {
-            labels: ['FaceAds', 'Brinde para Sorteio', 'Local'],
+            labels: ['FaceAds', 'Brinde', 'Local'],
             series: [51, 39.90, 139.00]
         };
 
         var options = {
             labelInterpolationFnc: function(value) {
                 return value[0]
-            }
+            },
+            width: 500
         };
 
         var responsiveOptions = [
-            ['screen and (min-width: 640px)', {
-                chartPadding: 30,
-                labelOffset: 100,
-                labelDirection: 'explode',
-                labelInterpolationFnc: function(value) {
-                    return value;
-                }
-            }],
-            ['screen and (min-width: 1024px)', {
-                labelOffset: 80,
-                chartPadding: 20
-            }]
-        ];
+                ['screen and (min-width: 640px)', {
+                        chartPadding: 30,
+                        labelOffset: 100,
+                        labelDirection: 'explode',
+                        labelInterpolationFnc: function(value) {
+                            return value[0]
+                        }
+                    };
 
-        new Chartist.Pie('#chart3', data3, options, responsiveOptions);
+                    var responsiveOptions = [
+                        ['screen and (min-width: 640px)', {
+                            chartPadding: 30,
+                            labelOffset: 100,
+                            labelDirection: 'explode',
+                            labelInterpolationFnc: function(value) {
+                                return value;
+                            }
+                        }],
+                        ['screen and (min-width: 1024px)', {
+                            labelOffset: 80,
+                            chartPadding: 20
+                        }]
+                    ];
+
+                    new Chartist.Pie('#chart3', data3, options, responsiveOptions);
 
 
 
-        var data4 = {
-            labels: ['Patrocinio', 'Ingressos'],
-            series: [500, 355]
-        };
+                    var data4 = {
+                        labels: ['Patrocinio', 'Ingressos'],
+                        series: [500, 355]
+                    };
 
-        var options = {
-            labelInterpolationFnc: function(value) {
-                return value[0]
-            }
-        };
+                    var options = {
+                        labelInterpolationFnc: function(value) {
+                            return value[0]
+                        },
+                        width: 500
+                    };
 
-        var responsiveOptions = [
-            ['screen and (min-width: 640px)', {
-                chartPadding: 30,
-                labelOffset: 100,
-                labelDirection: 'explode',
-                labelInterpolationFnc: function(value) {
-                    return value;
-                }
-            }],
-            ['screen and (min-width: 1024px)', {
-                labelOffset: 80,
-                chartPadding: 20
-            }]
-        ];
+                    var responsiveOptions = [
+                        ['screen and (min-width: 640px)', {
+                            chartPadding: 30,
+                            labelOffset: 100,
+                            labelDirection: 'explode',
+                            labelInterpolationFnc: function(value) {
+                                return value;
+                            }
+                        }],
+                        ['screen and (min-width: 1024px)', {
+                            labelOffset: 80,
+                            chartPadding: 20
+                        }]
+                    ];
 
-        new Chartist.Pie('#chart4', data4, options, responsiveOptions);
+                    new Chartist.Pie('#chart4', data4, options, responsiveOptions);
     </script>
 </body>
 
