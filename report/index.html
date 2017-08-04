@@ -252,6 +252,9 @@
                         <li>
                             <a href="#6a" data-toggle="tab">Leads</a>
                         </li>
+                        <li>
+                            <a href="#7a" data-toggle="tab">Comprovantes</a>
+                        </li>
                     </ul>
                     <br>
                     <div class="tab-content clearfix">
@@ -259,7 +262,7 @@
                         <div class="tab-pane active" id="0a">
                             <div class="row">
                                 <div class="col-md-12 text-center">
-                                    <iframe width="800" height="600" src="https://docs.google.com/document/d/1o92g9kKZFBFWcsKezKnQxknlZySBFOBD12PhI0pim5w/pub?embedded=true"></iframe>
+                                    <iframe width="100%" height="600" src="https://docs.google.com/document/d/1o92g9kKZFBFWcsKezKnQxknlZySBFOBD12PhI0pim5w/pub?embedded=true"></iframe>
                                 </div>
                             </div>
                             <div class="row" style="margin-top:15px;">
@@ -279,7 +282,7 @@
 
                             <div class="row">
                                 <div class="col-md-12 text-center">
-                                    <iframe width="800" height="600" src="https://docs.google.com/document/d/1GV4k0_Go5LbIUPq40cazJfN1ny7oTAmg8c0TXPU8GKs/pub?embedded=true"></iframe>
+                                    <iframe width="100%" height="600" src="https://docs.google.com/document/d/1GV4k0_Go5LbIUPq40cazJfN1ny7oTAmg8c0TXPU8GKs/pub?embedded=true"></iframe>
                                 </div>
                             </div>
                             <div class="row" style="margin-top:15px;">
@@ -297,15 +300,20 @@
                             <iframe src="https://docs.google.com/viewer?srcid=0Bxnvfl8d1SNfUHk4eXpXemxHalU&pid=explorer&efh=false&a=v&chrome=false&embedded=true" width="100%" height="600"></iframe>
                         </div>
                         <div class="tab-pane" id="5a">
-                            <iframe src="https://docs.google.com/viewer?srcid=0Bxnvfl8d1SNfeVdjSy1BUWRjX2M&pid=explorer&efh=false&a=v&chrome=false&embedded=true" width="800" height="600"></iframe>
+                            <iframe src="https://docs.google.com/viewer?srcid=0Bxnvfl8d1SNfeVdjSy1BUWRjX2M&pid=explorer&efh=false&a=v&chrome=false&embedded=true" width="100%" height="600"></iframe>
                         </div>
+
                         <div class="tab-pane" id="6a">
-                            <iframe src="https://docs.google.com/spreadsheets/d/1Y5jkIm84FfSwukMDeSY1JqS9YETg4Z8WQulFP4Xus4E/pubhtml?gid=418837227&amp;single=true&amp;widget=true&amp;headers=false" width="800" height="600"></iframe>
+                            <iframe src="https://docs.google.com/spreadsheets/d/1Y5jkIm84FfSwukMDeSY1JqS9YETg4Z8WQulFP4Xus4E/pubhtml?gid=418837227&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="600"></iframe>
                             <div class="col-md-12 text-center">
                                 <a target="_blank" href="https://docs.google.com/spreadsheets/d/1Y5jkIm84FfSwukMDeSY1JqS9YETg4Z8WQulFP4Xus4E/edit?usp=sharing" class="btn btn-primary">
                                     <i class="fa fa-external-link" aria-hidden="true"></i> Link Externo
                                 </a>
                             </div>
+                        </div>
+
+                        <div class="tab-pane" id="7a">
+                            <iframe src="https://drive.google.com/file/d/0B5dE48ZixZTVSnRrNjhjQ0NueTA&pid=explorer&efh=false&a=v&chrome=false&embedded=true" width="100%" height="600"></iframe>
                         </div>
                     </div>
                 </div>
@@ -327,6 +335,8 @@
                         <a href="mailto:bodemeier.mauricio@gmail.com" class="list-group-item">Mauricio Castro (@mbcastro) - Hustler</a>
                         <a href="mailto:naty-west@hotmail.com" class="list-group-item">Nataly Alcantara (@nataly) - Hacker</a>
                         <a href="mailto:mail@victorf.ch" class="list-group-item">Victor Ferreira Silva (@victorf) - Hacker</a>
+                        <a href="mailto:vitoria.eoss@gmail.com" class="list-group-item">Vitoria Oliveira (@vitoria.oliveira) - Hustler</a>
+
                         </ul>
                     </div>
                 </div>
@@ -351,55 +361,59 @@
     <script src="js/chartist.min.js"></script>
 
     <script type="text/javascript">
-   /* a venda de ingressos por dia */
+        /* a venda de ingressos por dia */
 
         new Chartist.Bar('#chart1', {
-          labels: ['Sáb', 'Dom', 'Seg', 'Ter', 'Qua'],
-          series: [[0, 0, 0, 133, 721.4]]
+            labels: ['Sáb', 'Dom', 'Seg', 'Ter', 'Qua'],
+            series: [
+                [0, 0, 0, 133, 721.4]
+            ]
         });
-        
- 
-         new Chartist.Bar('#chart2', {
-          labels: ['Faturamento', 'Custo'],
-          series: [[855, 229.90]]
+
+
+        new Chartist.Bar('#chart2', {
+            labels: ['Faturamento', 'Custo'],
+            series: [
+                [855, 229.90]
+            ]
         });
-        
-        
+
+
         /*Composição do Custo*/
 
         var data3 = {
-          labels: ['FaceAds', 'Brinde para Sorteio', 'Local' ],
-          series: [51, 39.90, 139.00]
+            labels: ['FaceAds', 'Brinde para Sorteio', 'Local'],
+            series: [51, 39.90, 139.00]
         };
-        
+
         var options = {
-          labelInterpolationFnc: function(value) {
-            return value[0]
-          }
-        };
-        
-        var responsiveOptions = [
-          ['screen and (min-width: 640px)', {
-            chartPadding: 30,
-            labelOffset: 100,
-            labelDirection: 'explode',
             labelInterpolationFnc: function(value) {
-              return value;
+                return value[0]
             }
-          }],
-          ['screen and (min-width: 1024px)', {
-            labelOffset: 80,
-            chartPadding: 20
-          }]
+        };
+
+        var responsiveOptions = [
+            ['screen and (min-width: 640px)', {
+                chartPadding: 30,
+                labelOffset: 100,
+                labelDirection: 'explode',
+                labelInterpolationFnc: function(value) {
+                    return value;
+                }
+            }],
+            ['screen and (min-width: 1024px)', {
+                labelOffset: 80,
+                chartPadding: 20
+            }]
         ];
-        
+
         new Chartist.Pie('#chart3', data3, options, responsiveOptions);
-        
-        
+
+
 
         var data4 = {
-          labels: ['Patrocinio', 'Ingressos'],
-          series: [500, 355]
+            labels: ['Patrocinio', 'Ingressos'],
+            series: [500, 355]
         };
 
         var options = {
