@@ -103,25 +103,25 @@
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <div class="ct-chart ct-perfect-fourth" id="chart1"></div>
-                        <p class="text-muted">Our templates are updated regularly so they don't break.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <div class="ct-chart ct-perfect-fourth" id="chart2"></div>
-                        <p class="text-muted">You can use this theme as is, or you can make changes!</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
-                        <div class="ct-chart ct-perfect-fourth" id="chart3"></div>
-                        <p class="text-muted">We update dependencies to keep things fresh.</p>
+                        <p class="text-muted">Faturamento Por Dia</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <div class="ct-chart ct-perfect-fourth" id="chart4"></div>
-                        <p class="text-muted">You have to make your websites with love these days!</p>
+                        <p class="text-muted">Composição do Faturamento</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <div class="ct-chart ct-perfect-fourth" id="chart3"></div>
+                        <p class="text-muted">Composição do Custo</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <div class="ct-chart ct-perfect-fourth" id="chart2"></div>
+                        <p class="text-muted">Faturamento x Custo</p>
                     </div>
                 </div>
             </div>
@@ -346,59 +346,55 @@
     
     <script type="text/javascript">
 
+        /* a venda de ingressos por dia */
 
-        var data1 = {
-          // A labels array that can contain any sort of values
-          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-          // Our series array that contains series objects or in this case series data arrays
-          series: [
-            [5, 2, 4, 2, 0]
-          ]
-        };
-        
-        // Create a new line chart object where as first parameter we pass in a selector
-        // that is resolving to our chart container element. The Second parameter
-        // is the actual data object.
-        new Chartist.Line('#chart1', data1);
+        new Chartist.Bar('#chart1', {
+          labels: ['Sáb', 'Dom', 'Seg', 'Ter', 'Qua'],
+          series: [[0, 0, 0, 133, 721.4]]
+        });
         
  
-        new Chartist.Bar('#chart2', {
-          labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-          series: [
-            [800000, 1200000, 1400000, 1300000],
-            [200000, 400000, 500000, 300000],
-            [100000, 200000, 400000, 600000]
-          ]
-        }, {
-          stackBars: true,
-          axisY: {
+         new Chartist.Bar('#chart2', {
+          labels: ['Faturamento', 'Custo'],
+          series: [[855, 229.90]]
+        });
+        
+        
+        /*Composição do Custo*/
+
+        var data3 = {
+          labels: ['FaceAds', 'Brinde para Sorteio', 'Local' ],
+          series: [51, 39.90, 139.00]
+        };
+        
+        var options = {
+          labelInterpolationFnc: function(value) {
+            return value[0]
+          }
+        };
+        
+        var responsiveOptions = [
+          ['screen and (min-width: 640px)', {
+            chartPadding: 30,
+            labelOffset: 100,
+            labelDirection: 'explode',
             labelInterpolationFnc: function(value) {
-              return (value / 1000) + 'k';
+              return value;
             }
-          }
-        }).on('draw', function(data) {
-          if(data.type === 'bar') {
-            data.element.attr({
-              style: 'stroke-width: 30px'
-            });
-          }
-        });
+          }],
+          ['screen and (min-width: 1024px)', {
+            labelOffset: 80,
+            chartPadding: 20
+          }]
+        ];
+        
+        new Chartist.Pie('#chart3', data3, options, responsiveOptions);
         
         
-        
-        new Chartist.Bar('#chart3', {
-          labels: ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'],
-          series: [20, 60, 120, 200, 180, 20, 10]
-        }, {
-          distributeSeries: true
-        });
-        
-        
-    
-    
+
         var data4 = {
-          labels: ['Bananas', 'Apples', 'Grapes'],
-          series: [20, 15, 40]
+          labels: ['Patrocinio', 'Ingressos'],
+          series: [500, 355]
         };
         
         var options = {
