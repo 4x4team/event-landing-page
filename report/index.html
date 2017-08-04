@@ -25,13 +25,7 @@
     <!-- Theme CSS -->
     <link href="css/creative.min.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+    <link rel="stylesheet" href="css/chartist.min.css">
 </head>
 
 <body id="page-top">
@@ -108,29 +102,25 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
-                        <h3>Sturdy Templates</h3>
+                        <div class="ct-chart ct-perfect-fourth" id="chart1"></div>
                         <p class="text-muted">Our templates are updated regularly so they don't break.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
-                        <h3>Ready to Ship</h3>
+                        <div class="ct-chart ct-perfect-fourth" id="chart2"></div>
                         <p class="text-muted">You can use this theme as is, or you can make changes!</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
-                        <h3>Up to Date</h3>
+                        <div class="ct-chart ct-perfect-fourth" id="chart3"></div>
                         <p class="text-muted">We update dependencies to keep things fresh.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
-                        <h3>Made with Love</h3>
+                        <div class="ct-chart ct-perfect-fourth" id="chart4"></div>
                         <p class="text-muted">You have to make your websites with love these days!</p>
                     </div>
                 </div>
@@ -238,7 +228,9 @@
     <aside class="bg-light">
         <div class="container text-center">
             <div class="call-to-action">
-                <h2>"Show Me the Reports!"</h2>
+
+                <h2>"Show Me The Reports!"</h2>
+                <hr class="primary">
 
                 <div id="exTab1" class="jumbotron">
                     <ul class="nav nav-pills">
@@ -255,7 +247,7 @@
                             <a href="#4a" data-toggle="tab">Aquisição</a>
                         </li>
                         <li>
-                            <a href="#5a" data-toggle="tab">Publico Alvo</a>
+                            <a href="#5a" data-toggle="tab">Público Alvo</a>
                         </li>
                         <li>
                             <a href="#6a" data-toggle="tab">Leads</a>
@@ -332,14 +324,6 @@
                         <a href="mailto:mail@victorf.ch" class="list-group-item">Victor Ferreira Silva (@victorf) - Hacker</a>
                         </ul>
                     </div>
-                    <!--<div class="col-lg-4 col-lg-offset-2 text-center">-->
-                    <!--    <i class="fa fa-phone fa-3x sr-contact"></i>-->
-                    <!--    <p>123-456-6789</p>-->
-                    <!--</div>-->
-                    <!--<div class="col-lg-4 text-center">-->
-                    <!--    <i class="fa fa-envelope-o fa-3x sr-contact"></i>-->
-                    <!--    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>-->
-                    <!--</div>-->
                 </div>
             </div>
     </section>
@@ -357,7 +341,93 @@
 
     <!-- Theme JavaScript -->
     <script src="js/creative.min.js"></script>
+    
+    <script src="js/chartist.min.js"></script>
+    
+    <script type="text/javascript">
 
+
+        var data1 = {
+          // A labels array that can contain any sort of values
+          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+          // Our series array that contains series objects or in this case series data arrays
+          series: [
+            [5, 2, 4, 2, 0]
+          ]
+        };
+        
+        // Create a new line chart object where as first parameter we pass in a selector
+        // that is resolving to our chart container element. The Second parameter
+        // is the actual data object.
+        new Chartist.Line('#chart1', data1);
+        
+ 
+        new Chartist.Bar('#chart2', {
+          labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+          series: [
+            [800000, 1200000, 1400000, 1300000],
+            [200000, 400000, 500000, 300000],
+            [100000, 200000, 400000, 600000]
+          ]
+        }, {
+          stackBars: true,
+          axisY: {
+            labelInterpolationFnc: function(value) {
+              return (value / 1000) + 'k';
+            }
+          }
+        }).on('draw', function(data) {
+          if(data.type === 'bar') {
+            data.element.attr({
+              style: 'stroke-width: 30px'
+            });
+          }
+        });
+        
+        
+        
+        new Chartist.Bar('#chart3', {
+          labels: ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'],
+          series: [20, 60, 120, 200, 180, 20, 10]
+        }, {
+          distributeSeries: true
+        });
+        
+        
+    
+    
+        var data4 = {
+          labels: ['Bananas', 'Apples', 'Grapes'],
+          series: [20, 15, 40]
+        };
+        
+        var options = {
+          labelInterpolationFnc: function(value) {
+            return value[0]
+          }
+        };
+        
+        var responsiveOptions = [
+          ['screen and (min-width: 640px)', {
+            chartPadding: 30,
+            labelOffset: 100,
+            labelDirection: 'explode',
+            labelInterpolationFnc: function(value) {
+              return value;
+            }
+          }],
+          ['screen and (min-width: 1024px)', {
+            labelOffset: 80,
+            chartPadding: 20
+          }]
+        ];
+        
+        new Chartist.Pie('#chart4', data4, options, responsiveOptions);
+        
+  
+        
+        
+    </script>
 </body>
 
 </html>
